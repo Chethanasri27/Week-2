@@ -1,0 +1,110 @@
+# Traffic Sign Recognition
+
+This project implements a deep learning approach for traffic sign classification using a Convolutional Neural Network (CNN) built with Keras and TensorFlow. The dataset used is the German Traffic Sign Recognition Benchmark (GTSRB).
+
+## Project Structure
+
+```
+traffic-sign-recognition/
+├── train/
+│   └── [0...42]/              # Subfolders for each sign class, containing images
+├── test/
+│   └── [0...42]/              # Structured like train for testing
+├── meta/
+│   └── signnames.csv          # CSV mapping class indices to sign names
+├── model/
+│   └── traffic_sign_model.h5  # Saved trained model
+├── traffic_signs.py           # Main Python training and testing script
+├── README.md                  # Project documentation
+└── requirements.txt           # Python dependencies
+```
+
+## Installation
+
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/yourusername/traffic-sign-recognition.git
+   cd traffic-sign-recognition
+   ```
+
+2. **Install Python dependencies:**
+   ```
+   pip install tensorflow pillow numpy pandas
+   ```
+
+3. **Download the GTSRB dataset** and extract the training and testing images into the `train/` and `test/` folders respectively. Each class should have its own directory named by integer label (e.g., `train/0/`, `train/1/`, ..., `train/42/`). Place `signnames.csv` (mapping class labels to readable names) inside the `meta/` folder.
+
+## Usage
+
+1. **Run the training and evaluation script:**
+   ```
+   python traffic_signs.py
+   ```
+
+2. **Model Output:**
+   - The script trains a CNN on the training set, evaluates test accuracy, and saves the trained model as `model/traffic_sign_model.h5`.
+
+## File Descriptions
+
+- **traffic_signs.py:** Main script for data loading, preprocessing, model definition, training, evaluation, and saving the trained model.
+- **train/** & **test/**: Directories with images categorized by class label as subfolders.
+- **meta/signnames.csv:** Maps class numbers (0-42) to sign names.
+- **model/traffic_sign_model.h5:** The saved model file after training.
+- **requirements.txt:** List of Python packages required for the project.
+
+## Dataset
+
+- Dataset: German Traffic Sign Recognition Benchmark (GTSRB)
+- Website: https://benchmark.ini.rub.de/GTSRB_info.html
+- The dataset is organized into class-labeled folders for easy loading.
+
+## Dependencies
+
+- tensorflow
+- keras (included in tensorflow)
+- numpy
+- pandas
+- pillow
+
+## Model Architecture
+
+The CNN model includes:
+- Convolutional layers with ReLU activation for feature extraction
+- MaxPooling layers for dimensionality reduction
+- Dense layers for classification
+- Output layer with 43 classes (traffic sign categories)
+
+## Example Usage
+
+Sample code for loading data and training the CNN is provided in `traffic_signs.py`. Adjust hyperparameters and preprocessing for improved results as required.
+
+## Performance
+
+- Expected accuracy: 90-95% on the test set
+- Training epochs: 10 (adjustable for better convergence)
+- Image size: 30x30 pixels
+
+## Future Improvements
+
+- Implement data augmentation for better generalization
+- Use transfer learning with pre-trained models (ResNet, VGG)
+- Add real-time detection using webcam input
+- Deploy as a web application using Flask or Streamlit
+
+## References
+
+- Python Project on Traffic Signs Recognition with 95% Accuracy using CNN & Keras - DataFlair
+- Traffic Signs Recognition using CNN and Keras in Python - GeeksforGeeks
+- deepak2233/Traffic-Signs-Recognition-using-CNN-Keras - GitHub
+
+## Author
+
+Your Name / Organization
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+**Note:** For reproducible results, ensure correct dataset arrangement and verify that all dependencies are installed as listed.
